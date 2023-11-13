@@ -3,22 +3,19 @@ import java.util.*;
 class Solution {
     public int[] solution(int n) {
         List<Integer> list = new ArrayList<>(); 
-        
+
         while(true) {
+            list.add(n);
+                
             if(n % 2 == 0) {
-                list.add(n);
                 n /= 2;
-            } else{
-                list.add(n);
-                n = 3 * n + 1;  
-            } 
-            
-            if(n == 1) {
-                list.add(n);
+            } else if(n == 1){
                 break;
+            } else {
+                n = 3 * n + 1;
             }
         }
-        
+
         int[] answer = new int[list.size()];
         answer = list.stream().mapToInt(i -> i).toArray();
 
