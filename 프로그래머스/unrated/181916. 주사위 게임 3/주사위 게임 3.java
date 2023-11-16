@@ -24,7 +24,6 @@ class Solution {
         } else {
             answer = dice[0];
         }
-        
         return answer;
     }
 }
