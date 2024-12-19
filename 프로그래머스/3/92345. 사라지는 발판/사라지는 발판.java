@@ -40,7 +40,6 @@ public class Solution {
                     return new Result(true, step + 1);
                 }
                     
-
                 visited[now[0]][now[1]] = true;
                 Result result = step % 2 == 0 ? recursive(new int[]{nr, nc}, beta, step + 1)
                         : recursive(alpha, new int[]{nr, nc}, step + 1);
