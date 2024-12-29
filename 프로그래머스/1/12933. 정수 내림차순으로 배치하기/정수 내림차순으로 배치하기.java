@@ -3,21 +3,34 @@ import java.util.Collections;
 
 class Solution {
     public long solution(long n) {
-        long answer = 0;
-        String nString = String.valueOf(n);
-        String nStringSort = "";
-        String[] nArray = new String[nString.length()];
+        String[] digits = String.valueOf(n).split("");
+
+        Arrays.sort(digits, Collections.reverseOrder());
+
+        StringBuilder sb = new StringBuilder();
         
-        for(int i = 0; i < nString.length(); i++) {
-            nArray[i] = Character.toString(nString.charAt(i));
+        for (String digit : digits) {
+            sb.append(digit);
         }
+            
+        return Long.parseLong(sb.toString());
         
-        Arrays.sort(nArray, Collections.reverseOrder());
+//         1안
+//         long answer = 0;
+//         String nString = String.valueOf(n);
+//         String nStringSort = "";
+//         String[] nArray = new String[nString.length()];
+        
+//         for(int i = 0; i < nString.length(); i++) {
+//             nArray[i] = Character.toString(nString.charAt(i));
+//         }
+        
+//         Arrays.sort(nArray, Collections.reverseOrder());
   
-        for (int j = 0; j<nArray.length; j++) {
-            nStringSort += nArray[j];       
-        }
+//         for (int j = 0; j<nArray.length; j++) {
+//             nStringSort += nArray[j];       
+//         }
         
-        return answer = Long.parseLong(nStringSort);
+//         return answer = Long.parseLong(nStringSort);
     }
 }
