@@ -3,17 +3,36 @@ import java.util.Collections;
 
 class Solution {
     public long solution(long n) {
-        String[] digits = String.valueOf(n).split("");
-
-        Arrays.sort(digits, Collections.reverseOrder());
-
-        StringBuilder sb = new StringBuilder();
+        int[] counts = new int[10];
         
-        for (String digit : digits) {
-            sb.append(digit);
+        while (n > 0) {
+            counts[(int)(n % 10)]++;
+            n /= 10;
         }
+        
+        long answer = 0;
+        
+        for (int i = 9; i >= 0; i--) {
+            for (int j = 0; j < counts[i]; j++) {
+                answer += i;
+                answer *= 10;
+            }
+        }
+        
+        return answer / 10;
+        
+//         2안
+//         String[] digits = String.valueOf(n).split("");
+
+//         Arrays.sort(digits, Collections.reverseOrder());
+
+//         StringBuilder sb = new StringBuilder();
+        
+//         for (String digit : digits) {
+//             sb.append(digit);
+//         }
             
-        return Long.parseLong(sb.toString());
+//         return Long.parseLong(sb.toString());
         
 //         1안
 //         long answer = 0;
